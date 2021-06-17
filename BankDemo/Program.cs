@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Bank_BL;
+using System.Text.RegularExpressions;
 namespace BankDemo
 {
     class Program
@@ -12,6 +13,8 @@ namespace BankDemo
         {
             SavingAccount sAccObj = new SavingAccount();//saving account 
             CheckingAccount cAccObj = new CheckingAccount();//checking account
+            string sReg = @"^\d{0,9}$";
+            Regex regx = new Regex(sReg); //Regular Expressions
             double checkbalance = 5000;
             Name nav = new Name();
            
@@ -29,12 +32,20 @@ namespace BankDemo
                 nav.lastName = "Pakhale";
                 sAccObj.AccountHolderName.Add(nav);
                 sAccObj.AccountOpenDate = System.DateTime.Now.AddDays(-234);
-               
-
                 double balance = 10000;
                 sAccObj.BalanceAmount = balance;
                 sAccObj.AccountNumber = 100021;
-               
+
+                //Condition checking for regular expression
+                if (regx.IsMatch(Convert.ToString( sAccObj.AccountNumber)))
+                {
+                    Console.WriteLine("");
+                }
+               else
+                {
+                    Console.WriteLine("Please Enter Valid Account Number.... ");
+                }
+
                 Console.WriteLine("\n****************WELCOME *************\n*****************MY BANK************* \n1.Saving Account\n2.Cheking Account\n3.Exit\nENTER YOUR CHOICE PLEASE....");
                 try
                 {
@@ -153,6 +164,16 @@ namespace BankDemo
                         nav.firstName = "Prakash";
                         nav.lastName = "Pakhale";
                         cAccObj.AccountNumber = 10000123;
+
+                        //Condition checking for regular expression
+                        if (regx.IsMatch(Convert.ToString(cAccObj.AccountNumber)))
+                        {
+                            Console.WriteLine("");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Please Enter Valid Account Number.... ");
+                        }
                         cAccObj.AccountHolderName.Add(nav);
                         cAccObj.AccountOpenDate = System.DateTime.Now.AddDays(-234);
                         Console.WriteLine("\n*************WELCOME IN CHECKING ACCOUNT****************");

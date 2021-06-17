@@ -96,8 +96,8 @@ namespace Bank_BL
 
         //Abstract method declaration
         public abstract double Debit();
-       
-        
+
+       // public abstract Transaction(); 
 
 
 
