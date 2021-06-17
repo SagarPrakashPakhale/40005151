@@ -131,6 +131,13 @@ namespace BankDemo
                                         double debitAmount = Convert.ToInt32(Console.ReadLine());
                                         sAccObj.debitAmount = debitAmount;
                                     }
+
+                                    //Condition for Debit
+                                    if(sAccObj.debitAmount>sAccObj.BalanceAmount)
+                                    {
+                                        Console.WriteLine("Sorry your are not having enough balance....");
+                                        goto case 1;
+                                    }
                                     Transaction tran1 = new Transaction();
                                     tran1.accountType = "SavingAccount";
                                     tran1.action = nameof(sAccObj.Debit);
@@ -248,7 +255,11 @@ namespace BankDemo
                                         cAccObj.debitedcheck = debitAmount;
                                     }
 
-
+                                    if (cAccObj.debitedcheck > sAccObj.BalanceAmount)
+                                    {
+                                        Console.WriteLine("Sorry your are not having enough balance....");
+                                        goto case 1;
+                                    }
                                     Transaction tran1 = new Transaction();
                                     tran1.accountType = "CheckingAccount";
                                     tran1.action = nameof(sAccObj.Debit);
