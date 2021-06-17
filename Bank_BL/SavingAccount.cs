@@ -10,14 +10,14 @@ namespace Bank_BL
     {
         //Variable declaration 
         public double transactionChargeSaving { get; set; }
-        public double creditAmount { get; set; }
+       // public double creditAmount { get; set; }
         public double debitAmount { get; set; }
 
         //override Methods
-        public override double Credit()
+       /* public override double Credit()
         {
             return  BalanceAmount = BalanceAmount+creditAmount;
-        }
+        }*/
 
         public override double Debit()
         {

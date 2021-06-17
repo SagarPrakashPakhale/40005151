@@ -87,20 +87,20 @@ namespace BankDemo
                                     try
                                     {
                                         double creditAmount = Convert.ToInt32(Console.ReadLine());
-                                        sAccObj.creditAmount = creditAmount;
+                                        sAccObj.CreditAmount = creditAmount;
                                     }
                                     catch(Exception)
                                     {
                                         Console.WriteLine("Please Enter Valid amount");
                                         double creditAmount = Convert.ToInt32(Console.ReadLine());
-                                        sAccObj.creditAmount = creditAmount;
+                                        sAccObj.CreditAmount = creditAmount;
                                     }
 
 
                                     Transaction tran3 = new Transaction();
                                     tran3.accountType = "SavingAccount";
                                     tran3.action = nameof(sAccObj.Credit);
-                                    tran3.ammount = sAccObj.creditAmount;
+                                    tran3.ammount = sAccObj.CreditAmount;
                                     tran3.time = System.DateTime.Now;
                                     tran3.transacID = trID;
                                     sAccObj.Credit();
@@ -195,18 +195,18 @@ namespace BankDemo
                                     try
                                     {
                                         double creditAmount = Convert.ToInt32(Console.ReadLine());
-                                        cAccObj.creditAmountcheck = creditAmount;
+                                        cAccObj.CreditAmount = creditAmount;
                                     }
                                     catch(Exception)
                                     {
                                         Console.WriteLine("Enter valid amount");
                                         double creditAmount = Convert.ToInt32(Console.ReadLine());
-                                        cAccObj.creditAmountcheck = creditAmount;
+                                        cAccObj.CreditAmount = creditAmount;  
                                     }
                                     Transaction tran2 = new Transaction();
                                     tran2.accountType = "CheckingAccount";
                                     tran2.action = nameof(cAccObj.Credit);
-                                    tran2.ammount = cAccObj.creditAmountcheck;
+                                    tran2.ammount = cAccObj.CreditAmount;
                                     tran2.time = System.DateTime.Now;
                                     tran2.transacID = trID;
                                     cAccObj.Credit();
@@ -229,7 +229,7 @@ namespace BankDemo
 
 
                                     Transaction tran1 = new Transaction();
-                                    tran1.accountType = "SavingAccount";
+                                    tran1.accountType = "CheckingAccount";
                                     tran1.action = nameof(sAccObj.Debit);
                                     tran1.ammount = sAccObj.debitAmount;
                                     tran1.time = System.DateTime.Now;

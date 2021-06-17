@@ -11,14 +11,14 @@ namespace Bank_BL
     {
         //Variable declaration 
         public double transactionChargeCheckingCheck { get; set; }
-        public double creditAmountcheck { get; set; }
+      //  public double creditAmountcheck { get; set; }
         public double debitedcheck { get; set; }
 
 
-        public override double Credit( )
+       /* public override double Credit( )
         {
             return BalanceAmount=BalanceAmount + creditAmountcheck;
-        }
+        }*/
 
         public override double Debit()
         {

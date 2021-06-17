@@ -11,15 +11,26 @@ namespace Bank_BL
         //Variable Declaration
         private int accountNumber;
         private DateTime accountOpenDate;
-
+        private double creditAmount;
         //Association
         private List<Name> accountHolderName = new List<Name>();
         private  List<Transaction> listOfTransaction= new List<Transaction>();
         private double balanceAmount;
 
 
-      
+
         //Properties
+        public double CreditAmount
+        {
+            get
+            {
+                return creditAmount;
+            }
+            set
+            {
+                creditAmount = value;
+            }
+        }
         public int AccountNumber {
 
             get
@@ -84,8 +95,9 @@ namespace Bank_BL
 
 
         //Abstract method declaration
-        public abstract double Credit();
         public abstract double Debit();
+       
+        
 
 
 
@@ -95,7 +107,10 @@ namespace Bank_BL
             return BalanceAmount;
         }
 
-        
-        
+        public virtual double Credit()
+        {
+            return BalanceAmount= BalanceAmount + creditAmount;
+        }
+
     }
 }
