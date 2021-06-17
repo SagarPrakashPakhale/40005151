@@ -24,7 +24,8 @@ namespace Bank_BL
         {
             BalanceAmount = BalanceAmount - debitedcheck;
             transactionChargeCheckingCheck = debitedcheck * 2.5 / 100;
-            return BalanceAmount = BalanceAmount - transactionChargeCheckingCheck;
+            return  BalanceAmount = BalanceAmount - transactionChargeCheckingCheck;
+           
             
            
         }

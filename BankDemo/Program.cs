@@ -138,13 +138,15 @@ namespace BankDemo
                                         Console.WriteLine("Sorry your are not having enough balance....");
                                         goto case 1;
                                     }
+                                    
                                     Transaction tran1 = new Transaction();
+                                    sAccObj.Debit();
+                                    tran1.transactionChargesDebit = sAccObj.transactionChargeSaving;
                                     tran1.accountType = "SavingAccount";
                                     tran1.action = nameof(sAccObj.Debit);
                                     tran1.ammount = sAccObj.debitAmount;
                                     tran1.time = System.DateTime.Now;
                                     tran1.transacID = trID;
-                                    sAccObj.Debit();
                                     sAccObj.ListOfTransaction.Add(tran1);
                                     Console.WriteLine("Successfully Debited ....");
                                     break;
@@ -158,7 +160,7 @@ namespace BankDemo
                           
                                         foreach (var s in sAccObj.ListOfTransaction)
                                         {
-                                            Console.WriteLine("\n***********************************************************"+"\nTransactio ID:"+s.transacID+"\n "+"Account Type:"+s.accountType + "\n "+"Transaction Type:" + s.action + "\n "+"Transaction Amount:" + s.ammount + "\n "+"Transaction Time:" + s.time);
+                                            Console.WriteLine("\n***********************************************************"+"\nTransactio ID:"+s.transacID+"\n "+"Account Type:"+s.accountType + "\n "+"\nTransaction Type:" + s.action + "\n "+"Transaction Amount:" + s.ammount +"Transaction Charges:" +s.transactionChargesDebit+"\n "+"Transaction Time:" + s.time);
                                         }
                                     }
                                     break;
@@ -255,19 +257,21 @@ namespace BankDemo
                                         cAccObj.debitedcheck = debitAmount;
                                     }
 
-                                    if (cAccObj.debitedcheck > sAccObj.BalanceAmount)
+                                    if (cAccObj.debitedcheck > cAccObj.BalanceAmount)
                                     {
                                         Console.WriteLine("Sorry your are not having enough balance....");
                                         goto case 1;
                                     }
+                                    cAccObj.Debit();
                                     Transaction tran1 = new Transaction();
+                                    tran1.transactionChargesDebit = cAccObj.transactionChargeCheckingCheck;
                                     tran1.accountType = "CheckingAccount";
-                                    tran1.action = nameof(sAccObj.Debit);
-                                    tran1.ammount = sAccObj.debitAmount;
+                                    tran1.action = nameof(cAccObj.Debit);
+                                    tran1.ammount = cAccObj.debitedcheck;
                                     tran1.time = System.DateTime.Now;
                                     tran1.transacID = trID;
                                     
-                                    cAccObj.Debit();
+                                    
                                     cAccObj.ListOfTransaction.Add(tran1);
                                     Console.WriteLine("Successfully Debited....");
                                     break;
@@ -281,7 +285,7 @@ namespace BankDemo
                                         foreach (var s in cAccObj.ListOfTransaction)
                                         {
                                             
-                                            Console.WriteLine("\n********************************************************************************"+"\nTransactio ID:" + s.transacID + "\n " + "Account Type:" + s.accountType + "\n " + "Transaction Type:" + s.action + "\n " + "Transaction Amount:" + s.ammount + "\n " + "Transaction Time:" + s.time);
+                                            Console.WriteLine("\n********************************************************************************"+"\nTransactio ID:" + s.transacID + "\n " + "Account Type:" + s.accountType + "\n " + "Transaction Type:" + s.action + "\n " + "Transaction Amount:" + s.ammount +"\n Transaction Charges:"+s.transactionChargesDebit+ "\n " + "Transaction Time:" + s.time);
                                         }
                                     }
                                     break;

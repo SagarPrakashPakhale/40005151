@@ -13,6 +13,7 @@ namespace Bank_BL
         public string action {get; set; }
         public double ammount { get; set; }
         public DateTime time { get; set; }
+        public double transactionChargesDebit { get; set; }
 
         /*public Transaction(int transacID, string accountType, string action, double ammount, DateTime time)
         {
